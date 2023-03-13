@@ -113,7 +113,7 @@ const duration = ref(2700);
 const record = (duration) => {
   // 记录考试时间
   let date = new Date().toLocaleString('chinese', { hour12: false });
-  date = date.substring(0, 14);
+  date = date.substring(0, 15);
   // 计算考试用时
   let value = 2700 - duration;
   let cost = 0;

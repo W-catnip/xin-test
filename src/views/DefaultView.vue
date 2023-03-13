@@ -49,7 +49,7 @@
           <router-link to="/exam" custom v-slot="{ navigate }">
             <p @click="navigate">模拟考试</p>
           </router-link>
-          <p>平均成绩：{{ average }}</p>
+          <p>平均成绩：{{ average }}分</p>
         </div>
       </div>
     </div>
@@ -71,12 +71,12 @@
         </transition>
       </li>
     </ul>
-</div>
+  </div>
 </template>
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { ref, watchEffect, onMounted, computed, onBeforeMount } from 'vue';
+import { ref, watchEffect, onMounted, computed, watch, onBeforeMount } from 'vue';
 import { getError, getItem } from '../http/api/items';
 import { getExamStat } from '../http/api/statistics';
 import { useQueryStore } from '../stores';
@@ -100,8 +100,17 @@ const changeSub = async (bool) => {
   store.subject = sub;
   await getItem(store);
 }
-// 获取考试数据
+
 onBeforeMount(async () => {
+  getExamArr();
+})
+// 获取考试数据
+watch(() => store.subjectDetails,
+  (value) => {
+    getExamArr();
+  })
+// 获得成绩数组
+const getExamArr = async () => {
   if (store.logged) {
     const res = await getExamStat({
       subjectDetails: store.subjectDetails,
@@ -118,7 +127,7 @@ onBeforeMount(async () => {
       item.nickName = '学有所成'
     }
   })
-})
+}
 
 onMounted(() => {
   if (store.subject == 1) {

@@ -85,6 +85,7 @@ defineExpose({
   text-align: center;
 
   .contentBox {
+    padding-top: 3px;
     margin: 200px auto;
     width: 300px;
     height: 150px;

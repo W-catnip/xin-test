@@ -60,7 +60,7 @@ export const useQueryStore = defineStore('query', () => {
     (value) => {
       if (value.length) {
         const sum = value.reduce((prev, curr) => prev += curr, 0);
-        average.value = sum / value.length;
+        average.value = Math.round(sum / value.length);
       } else {
         average.value = 0;
       }
