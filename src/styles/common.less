@@ -1,0 +1,57 @@
+// 全局变量
+// 正文字体大小
+@main_fs:16px;
+// 绿色
+@green:#42b883;
+// 蓝色
+@blue:#056DE8;
+// 橙色
+@orange:#e87305;
+
+
+// flex布局
+.flex(@fd:row;@jc:center;@ai:center;@ac:flex-start){
+  display: flex;
+  flex-direction: @fd;
+  justify-content: @jc;
+  align-items: @ai;
+  align-content: @ac;
+}
+
+// 卡片基本样式
+.container {
+  padding: 15px;
+  background-color: #fff;
+}
+
+// 答题模板对错总数样式
+.overview {
+    width: 200px;
+    .flex(@jc: space-between);
+
+    div {
+      .flex();
+    }
+
+    span {
+      margin-left: 5px;
+      font-size: 15px;
+    }
+}
+
+// 确定按钮样式
+.confirm-btn {
+    width: 200px;
+    height: 32px;
+    font-size: @main_fs;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: @blue;
+}
+
+// 清除按钮样式
+.clear-btn {
+    color: #fff;
+    background-color: @orange;
+} 
