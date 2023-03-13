@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-</transition>
+  </transition>
 </template>
 
 <script setup>
@@ -85,10 +85,7 @@ defineExpose({
   text-align: center;
 
   .contentBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+    margin: 200px auto;
     width: 300px;
     height: 150px;
     background-color: #fff;
