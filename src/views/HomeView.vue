@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <router-view></router-view>
   </div>
   <ul class="footer">
@@ -45,12 +45,17 @@ onMounted(async () => {
 </script>
 
 <style lang="less">
+.main {
+  margin-bottom: 70px;
+}
+
 .footer {
   .flex();
   position: fixed;
   bottom: 0;
   width: 100vw;
   height: 60px;
+  background-color: #fff;
   box-shadow: 0 -1px 3px #ccc;
 
   li {
